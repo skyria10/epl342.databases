@@ -44,23 +44,14 @@
 	</tr>
     </table>
 	<hr>
-	<a href="q1.php">1) Insert a company with its manager</a><br>
-	<a href="q1.php">2) Q2</a><br>
-	<a href="q1.php">3) Q3</a><br>
-	<a href="q1.php">4) Q4</a><br>
-	<a href="q1.php">5) Q5</a><br>
-	<a href="q1.php">6) Q6</a><br>
-	<a href="q1.php">7) Q7</a><br>
-	<a href="q1.php">8) Q8</a><br>
-	<a href="q1.php">9) Q9</a><br>
-	<a href="q1.php">10) Q10</a><br>
-	<a href="q1.php">11) Q11</a><br>
-	<a href="q1.php">12) Insert a company with its manager</a><br>
-	<a href="q1.php">13) Insert a company with its manager</a><br>
-	<a href="q1.php">14) Insert a company with its manager</a><br>
-	<a href="q1.php">15) Insert a company with its manager</a><br>
-	<a href="q1.php">16) Insert a company with its manager</a><br>
-	<a href="q1.php">17) Insert a company with its manager</a><br>
+	<a href="q1.php">Query 1 (Simple SQL statement)</a><br>
+	<a href="q2.php">Query 2 (Calling a stored procedure without parameters)</a><br>
+	<form action="q3.php" method="get">
+		Query 3 (Calling a stored procedure with parameters)</a><br>
+		Parameter: <input type="text" name="city" value="Seattle">
+    <input type="submit" name="Query 3">
+	</form>
+
 	<hr>
 	<?php
 		if(isset($_POST['disconnect'])) { 
