@@ -48,7 +48,7 @@
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
 
 	//Read Query
-	$tsql= "SELECT [ID], [Last Name], [First Name], [E-mail Address], [Job Title], [City]  FROM Employees ORDER BY [Last Name], [First Name]";
+	$tsql= "SELECT * FROM [dbo].[p-Users]";
 
 	echo "Executing query: " . $tsql . ")<br/>";
 	$getResults= sqlsrv_query($conn, $tsql);
