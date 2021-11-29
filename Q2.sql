@@ -14,11 +14,12 @@ CREATE PROCEDURE dbo.Q2
 	BEGIN
 		SET NOCOUNT ON
 		
+
 		UPDATE dbo.[p-Company]
 		SET [Name]=@Name,EntryDate=@EntryDate
 		WHERE RecordNum=@RecordNum
 		
-		UPDATE dbo.[p-User](
+		UPDATE dbo.[p-Users]
 		SET FName=@FName,LName=@LName ,Bdate=@Bdate, Sex=@Sex, Username=@username, Password=@password
 		WHERE Manages=@RecordNum
 		
