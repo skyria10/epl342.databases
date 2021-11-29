@@ -46,9 +46,9 @@
 	<hr>
 	Please give your Credentianls to enter the system:
     <form action="chooseQuery.php" method="post">
-    Username: <input type="text" name="userName"><br>
-    Password: <input type="password" name="pswd"><br>
-    <input type="submit" name="login"> 
+    Username: <input type="text" name="username"><br>
+    Password: <input type="password" name="password"><br>
+    <input type="submit" name="connect"> 
     </form>
 	<?php
 		if(isset($_POST['disconnect'])) { 

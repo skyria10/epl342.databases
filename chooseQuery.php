@@ -44,23 +44,43 @@
 	</tr>
     </table>
 	<hr>
-	<a href="q1.php">1) Insert a company with its manager</a><br>
-	<a href="q1.php">2) Q2</a><br>
-	<a href="q1.php">3) Q3</a><br>
-	<a href="q1.php">4) Q4</a><br>
-	<a href="q1.php">5) Q5</a><br>
-	<a href="q1.php">6) Q6</a><br>
-	<a href="q1.php">7) Q7</a><br>
-	<a href="q1.php">8) Q8</a><br>
-	<a href="q1.php">9) Q9</a><br>
-	<a href="q1.php">10) Q10</a><br>
-	<a href="q1.php">11) Q11</a><br>
-	<a href="q1.php">12) Insert a company with its manager</a><br>
-	<a href="q1.php">13) Insert a company with its manager</a><br>
-	<a href="q1.php">14) Insert a company with its manager</a><br>
-	<a href="q1.php">15) Insert a company with its manager</a><br>
-	<a href="q1.php">16) Insert a company with its manager</a><br>
-	<a href="q1.php">17) Insert a company with its manager</a><br>
+	
+	<!-- <a href="q1.php">1) Insert a company with its manager</a><br> -->
+	<form action="q3.php" method="get">
+		1) Insert a company with its manager</a><br><br>
+			Company Details:<br>
+			Record Number: <input type="text" name="RecordNum"><br>
+			Name: <input type="text" name="Name"><br>
+			Entry Date: <input type="date" name="EntryDate" ><br>
+			<br>Manager Details:<br>
+			User ID: <input type="int" name="UserID" ><br>
+			Username<input type="text" name="username" ><br>
+			Password: <input type="text" name="password" ><br>
+			Full Name: <input type="text" name="FName" ><br>
+			Last Name: <input type="text" name="LName" ><br>
+			Birth Date: <input type="text" name="BDate"><br>
+			Sex: <input type="text" name="Sex" ><br>
+			Admin Username: <input type="text" name="adminUsername" ><br>
+    <input type="submit" name="Query 3">
+	</form>
+
+	<a href="q2.php">2) Company with its manager (edit/add/preview)</a><br>
+	<a href="q3.php">3) Insert simple user</a><br>
+	<a href="q4.php">4) Insert/edit/show simple user</a><br>
+	<a href="q5.php">5) Manage questions</a><br>
+	<a href="q6.php">6) Manage questionaires</a><br>
+	<a href="q7.php">7) Company's Questionnaires</a><br>
+	<a href="q8.php">8) Most popular questions</a><br>
+	<a href="q9.php">9) Number of questions per questionnaire</a><br>
+	<a href="q10.php">10) Average number of questions per company</a><br>
+	<a href="q11.php">11) Find large questionnaires</a><br>
+	<a href="q12.php">12) Find Small questionnaires</a><br>
+	<a href="q13.php">13) Find questionnaires with same questions</a><br>
+	<a href="q14.php">14) Find common questions</a><br>
+	<a href="q15.php">15) Find x questions with least participation </a><br>
+	<a href="q16.php">16) Questions that are included in all questionnaires</a><br>
+	<a href="q17.php">17) Number of questions of this questionnaire</a><br>
+
 	<hr>
 	
 	<?php

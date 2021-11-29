@@ -15,6 +15,7 @@
 	} 
 ?>
 
+
 <html>
 <head>
 	<style>
@@ -46,23 +47,17 @@
 	//Establishes the connection
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
 
-	//Read Stored proc with param
-    //TODO STORED PROCEDURE LOGIN
-	$tsql = "{call Login(?,?)}";  
-	echo "Executing query: " . $tsql . ") with parameter " . $_GET["username"] , $_GET["password"] . "<br/>";
+	//Read Query
+	$tsql= "SELECT * FROM [dbo].[p-Users]";
 
-	// Getting parameter from the http call and setting it for the SQL call
-	$params = array(  
-					 array($_GET["username"] SQLSRV_PARAM_IN),
-					 array($_GET["password"] SQLSRV_PARAM_IN)
-					);  
-
-	$getResults= sqlsrv_query($conn, $tsql, $params);
-	echo ("Results:<br/>");
+	echo "Executing query: " . $tsql . ")<br/>";
+	$getResults= sqlsrv_query($conn, $tsql);
+	echo "Results:<br/>";
 	if ($getResults == FALSE)
 		die(FormatErrors(sqlsrv_errors()));
 
 	PrintResultSet($getResults);
+
 	/* Free query  resources. */  
 	sqlsrv_free_stmt($getResults);
 
@@ -73,6 +68,24 @@
 	$execution_time = round((($time_end - $time_start)*1000),2);
 	echo 'QueryTime: '.$execution_time.' ms';
 
+
+	/*
+	function PrintResultSet ($resultSet) {
+		while ($row = sqlsrv_fetch_array($resultSet, SQLSRV_FETCH_ASSOC)) {
+			$newRow = true;
+			foreach($row as $col){
+				if ($newRow) {
+					$newRow = false;
+					echo (is_null($col) ? "Null" : $col);
+				} else {
+					echo (", ".(is_null($col) ? "Null" : $col));
+				}
+			}
+			echo("<br/>");
+		}
+		echo ("<table><tr><td>---</td></tr></table>");
+	}
+	*/
 
 	function PrintResultSet ($resultSet) {
 		echo ("<table><tr >");
@@ -109,7 +122,6 @@
 	}
 
 	?>
-
 	<hr>
 	<?php
 		if(isset($_POST['disconnect'])) { 
