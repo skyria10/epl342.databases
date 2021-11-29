@@ -44,7 +44,7 @@
 	</tr>
     </table>
 	<hr>
-	<!-- <a href="q1.php">1) Insert a company with its manager</a><br>
+	<a href="q1.php">1) Insert a company with its manager</a><br>
 	<a href="q1.php">2) Q2</a><br>
 	<a href="q1.php">3) Q3</a><br>
 	<a href="q1.php">4) Q4</a><br>
@@ -61,13 +61,8 @@
 	<a href="q1.php">15) Insert a company with its manager</a><br>
 	<a href="q1.php">16) Insert a company with its manager</a><br>
 	<a href="q1.php">17) Insert a company with its manager</a><br>
-	<hr> -->
-	Please give your Credentianls to enter the system:
-    <form action="login.php" method="post">
-    Username: <input type="text" name="userName"><br>
-    Password: <input type="password" name="pswd"><br>
-    <input type="submit" name="login"> 
-    </form>
+	<hr>
+	
 	<?php
 		if(isset($_POST['disconnect'])) { 
 			echo "Clossing session and redirecting to start page"; 
