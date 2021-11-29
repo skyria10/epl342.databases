@@ -1,5 +1,6 @@
-CREATE PROCEDURE dbo.Q1
+CREATE PROCEDURE dbo.Q3
 
+	@userID			int,
 	@username		varchar(30),
 	@password		varchar(30),
 	@FName			varchar(30),
@@ -12,17 +13,23 @@ CREATE PROCEDURE dbo.Q1
 	BEGIN
 	SET NOCOUNT ON
 		
-		DECLARE @company int
-		SET @company = (SELECT Manages 
-						FROM dbo.[p-User]
-						WHERE Username=@managerUsername)
+		DECLARE @adminID AS INT
+		SELECT @adminID = UserID
+						FROM dbo.[p-Users]
+						WHERE Username=@managerUsername
+
+		DECLARE @company AS INT
+		SELECT	@company= Manages 
+				FROM dbo.[p-Users]
+				WHERE Username=@managerUsername
 		
 
-		INSERT INTO dbo.[p-User](
-			FName,LName ,Bdate, Sex,[Type], Username, Password, CreatedBy, Manages, WorksFor  
+		INSERT INTO dbo.[p-Users](
+			UserID,FName,LName ,Bdate, Sex,[Type], Username, Password, CreatedBy, Manages, WorksFor  
 		)
 		VALUES(
-			@FName,@LName ,@Bdate, @Sex,3, @Username, @Password,@adminUsername, null, @company
+			@UserID,@FName,@LName ,@Bdate, @Sex,3, @Username, @Password,@adminID, null, @company
 		)
 END
 GO
+
