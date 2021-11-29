@@ -4,12 +4,12 @@
 <html>
 <body>
 <?php
-	if (isset($_POST['connect'])) {
+	if (isset($_POST['login'])) {
 		echo "<br/>Setting session variables!<br/>";
 		// collect value of input field
-		$sqlDBname = "skyria10";//$_POST['dbName'];
-		$sqlUser ="skyria10"; //$_POST['userName'];
-		$sqlPass = "BhmDq6pe";//$_POST['pswd'];
+		$sqlDBname = "skyria10";
+		$sqlUser = "skyria10";
+		$sqlPass = "BhmDq6pe";
 	
 		if (empty($sqlDBname)) echo "Database name is empty!<br/>";
 		if (empty($sqlUser)) echo "Username is empty!<br/>";

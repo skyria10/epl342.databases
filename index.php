@@ -44,26 +44,8 @@
 	</tr>
     </table>
 	<hr>
-	<!-- <a href="q1.php">1) Insert a company with its manager</a><br>
-	<a href="q1.php">2) Q2</a><br>
-	<a href="q1.php">3) Q3</a><br>
-	<a href="q1.php">4) Q4</a><br>
-	<a href="q1.php">5) Q5</a><br>
-	<a href="q1.php">6) Q6</a><br>
-	<a href="q1.php">7) Q7</a><br>
-	<a href="q1.php">8) Q8</a><br>
-	<a href="q1.php">9) Q9</a><br>
-	<a href="q1.php">10) Q10</a><br>
-	<a href="q1.php">11) Q11</a><br>
-	<a href="q1.php">12) Insert a company with its manager</a><br>
-	<a href="q1.php">13) Insert a company with its manager</a><br>
-	<a href="q1.php">14) Insert a company with its manager</a><br>
-	<a href="q1.php">15) Insert a company with its manager</a><br>
-	<a href="q1.php">16) Insert a company with its manager</a><br>
-	<a href="q1.php">17) Insert a company with its manager</a><br>
-	<hr> -->
 	Please give your Credentianls to enter the system:
-    <form action="login.php" method="post">
+    <form action="chooseQuery.php" method="post">
     Username: <input type="text" name="userName"><br>
     Password: <input type="password" name="pswd"><br>
     <input type="submit" name="login"> 
