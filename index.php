@@ -63,10 +63,10 @@
 	<a href="q1.php">17) Insert a company with its manager</a><br>
 	<hr> -->
 	Please give your Credentianls to enter the system:
-    <form action="chooseQuery.php" method="post">
+    <form action="login.php" method="post">
     Username: <input type="text" name="userName"><br>
     Password: <input type="password" name="pswd"><br>
-    <input type="submit" name="connect"> 
+    <input type="submit" name="login"> 
     </form>
 	<?php
 		if(isset($_POST['disconnect'])) { 
