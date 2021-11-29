@@ -47,7 +47,6 @@
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
 
 	//Read Stored proc with param
-    //TODO STORED PROCEDURE LOGIN
 	$tsql = "{call Login(?,?)}";  
 	echo "Executing query: " . $tsql . ") with parameter " . $_GET["username"] , $_GET["password"] . "<br/>";
 

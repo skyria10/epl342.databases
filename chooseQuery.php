@@ -4,7 +4,7 @@
 <html>
 <body>
 <?php
-	if (isset($_POST['login'])) {
+	if (isset($_POST['connect'])) {
 		echo "<br/>Setting session variables!<br/>";
 		// collect value of input field
 		$sqlDBname = "skyria10";
@@ -49,19 +49,19 @@
 	<form action="q3.php" method="get">
 		1) Insert a company with its manager</a><br><br>
 			Company Details:<br>
-			Record Number: <input type="text" name="RecordNum"><br>
+			Record Number: <input type="int" name="RecordNum"><br>
 			Name: <input type="text" name="Name"><br>
 			Entry Date: <input type="date" name="EntryDate" ><br>
 			<br>Manager Details:<br>
 			User ID: <input type="int" name="UserID" ><br>
 			Username<input type="text" name="username" ><br>
-			Password: <input type="text" name="password" ><br>
+			Password: <input type="password" name="password" ><br>
 			Full Name: <input type="text" name="FName" ><br>
 			Last Name: <input type="text" name="LName" ><br>
-			Birth Date: <input type="text" name="BDate"><br>
-			Sex: <input type="text" name="Sex" ><br>
+			Birth Date: <input type="date" name="BDate"><br>
+			Sex: <input type="int" name="Sex" ><br>
 			Admin Username: <input type="text" name="adminUsername" ><br>
-    <input type="submit" name="Query 3">
+    <input type="submit" name="connect">
 	</form>
 
 	<a href="q2.php">2) Company with its manager (edit/add/preview)</a><br>

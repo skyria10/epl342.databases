@@ -4,10 +4,13 @@
 	if(isset($_SESSION["serverName"]) && isset($_SESSION["connectionOptions"])) { 
 		$serverName = $_SESSION["serverName"];
 		$connectionOptions = $_SESSION["connectionOptions"];
+		
 	} else {
 		// Session is not correctly set! Redirecting to start page
+		
 		session_unset();
-		session_destroy();
+		session_destroy();#
+		echo "sercer name ",$serverName,"connection options", $connectionOptions;
 		echo "Session is not correctly set! Clossing session and redirecting to start page in 3 seconds<br/>";
 		die('<meta http-equiv="refresh" content="3; url=index.php" />');
 		//header('Location: index.php');
