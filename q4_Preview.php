@@ -7,9 +7,9 @@
 	if (isset($_POST['connect'])) {
 		echo "<br/>Setting session variables!<br/>";
 		// collect value of input field
-		$sqlDBname = "skyria10";//$_POST['dbName'];
-		$sqlUser ="skyria10"; //$_POST['userName'];
-		$sqlPass = "BhmDq6pe";//$_POST['pswd'];
+		$sqlDBname = "skyria10";
+		$sqlUser = "skyria10";
+		$sqlPass = "BhmDq6pe";
 	
 		if (empty($sqlDBname)) echo "Database name is empty!<br/>";
 		if (empty($sqlUser)) echo "Username is empty!<br/>";
@@ -44,12 +44,16 @@
 	</tr>
     </table>
 	<hr>
-	Please give your Credentianls to enter the system:
-    <form action="chooseQuery.php" method="post">
-		Username: <input type="text" name="username"><br>
-		Password: <input type="text" name="password"><br>
-    <input type="submit" name="connect"> 
-    </form>
+	
+	<!-- <a href="q1.php">1) Insert a company with its manager</a><br> -->
+	<a href="q3_Preview.php">1) Add new User</a><br>
+	<a href="q3_Preview_search.php">2) Search For a User Using username:</a><br>
+	<form action="q3_search.php" method="get">
+			Search a User using username: <input type="int" name="RecordNum"><br>
+    <input type="submit" name="connect">
+</form>
+	<hr>
+	
 	<?php
 		if(isset($_POST['disconnect'])) { 
 			echo "Clossing session and redirecting to start page"; 
@@ -58,6 +62,11 @@
 			die('<meta http-equiv="refresh" content="2; url=index.php" />');
 		} 
 	?> 
+	
+	<form method="post"> 
+		<input type="submit" name="disconnect" value="Disconnect"/> 
+		<input type="submit" value="Menu" formaction="chooseQuery.php">
+	</form> 
 
 </body>
 </html>

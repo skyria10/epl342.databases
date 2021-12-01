@@ -50,28 +50,28 @@
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
 
 	//Read Stored proc with param
-	$tsql = "{call Login(?,?)}";  
-	echo "Executing query: " . $tsql . ") with parameter <br/>"
+	$tsql = "{call dbo.Q1(?,?,?,?,?,?,?,?,?,?,?)}";  
+	echo "Executing query: " . $tsql . ") with parameter " . $_GET["RecordNum"] . "<br/>";
+
 	// Getting parameter from the http call and setting it for the SQL call
 	$params = array(  
+					 array($_GET["RecordNum"], SQLSRV_PARAM_IN),
+					 array($_GET["Name"], SQLSRV_PARAM_IN),
+					 array($_GET["EntryDate"], SQLSRV_PARAM_IN),
+					 array($_GET["UserID"], SQLSRV_PARAM_IN),
 					 array($_GET["username"], SQLSRV_PARAM_IN),
-					 array($_GET["password"], SQLSRV_PARAM_IN)
+					 array($_GET["password"], SQLSRV_PARAM_IN),
+					 array($_GET["FName"], SQLSRV_PARAM_IN),
+					 array($_GET["LName"], SQLSRV_PARAM_IN),
+					 array($_GET["BDate"], SQLSRV_PARAM_IN),
+					 array($_GET["Sex"], SQLSRV_PARAM_IN),
+					 array($_GET["adminUsername"], SQLSRV_PARAM_IN)
 					);  
 
 	$getResults= sqlsrv_query($conn, $tsql, $params);
 	echo ("Results:<br/>");
 	if ($getResults == FALSE)
 		die(FormatErrors(sqlsrv_errors()));
-
-    $result=sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC);
-
-    if(isset($result["UserID"])){
-        $_SESSION["UserID"] = $result["UserID"];
-        echo "Authentication Successfull";
-    }
-    else{
-        echo "Wrong Credentials Please Try Again";
-    }
 
 	PrintResultSet($getResults);
 	/* Free query  resources. */  
@@ -133,6 +133,7 @@
 	
 	<form method="post"> 
 		<input type="submit" name="disconnect" value="Disconnect"/> 
+		<input type="submit" value="Menu" formaction="chooseQuery.php">
 	</form> 
 
 </body>

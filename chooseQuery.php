@@ -43,7 +43,8 @@
 		<td vAlign=center align=middle><h2>Welcome to the EPL342 project test page</h2></td>
 	</tr>
     </table>
-	<hr>
+	<div class="main_selection">
+	<hr >
 	
 	<!-- <a href="q1.php">1) Insert a company with its manager</a><br> -->
 	<!-- <form action="q1_Preview.php" method="get">
@@ -63,10 +64,8 @@
 			Admin Username: <input type="int" name="adminUsername" ><br>
     <input type="submit" name="connect">
 	</form> -->
-	<a href="q1_Preview.php">1) Insert a company with its manager</a><br>
-	<a href="q2_Preview.php">2) Company with its manager (edit/add/preview)</a><br>
-	<a href="q3_Preview.php">3) Insert simple user</a><br>
-	<a href="q4_Preview.php">4) Insert/edit/show simple user</a><br>
+	<a href="q2_Preview.php">1) Company Management (edit/add/preview)</a><br>
+	<a href="q4_Preview.php">2) User Management (edit/add/preview)</a><br>
 	<a href="q5_Preview.php">5) Manage questions</a><br>
 	<a href="q6_Preview.php">6) Manage questionaires</a><br>
 	<a href="q7_Preview.php">7) Company's Questionnaires</a><br>
@@ -82,7 +81,7 @@
 	<a href="q17_Preview.php">17) Number of questions of this questionnaire</a><br>
 
 	<hr>
-	
+	</div>
 	<?php
 		if(isset($_POST['disconnect'])) { 
 			echo "Clossing session and redirecting to start page"; 
