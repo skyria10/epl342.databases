@@ -8,7 +8,7 @@ CREATE PROCEDURE dbo.Q9
 		
 		DECLARE 	@company int
 					SELECT @company Manages 
-					FROM dbo.[p-User]
+					FROM dbo.[p-Users]
 					WHERE Username=@logedInUsername
 					
 		SELECT CountQuery.CountQ, dbo.[p-Questionnaire].Title, dbo.[p-Questionnaire].Version
@@ -16,8 +16,8 @@ CREATE PROCEDURE dbo.Q9
 			SELECT COUNT(MyQuestionnaires.QuestionnaireID) AS CountQ,MyQuestionnaires.QuestionnaireID
 			FROM (
 				SELECT dbo.[p-Questionnaire].QuestionnaireID
-				FROM dbo.[p-User], dbo.[p-Questionnaire]
-				WHERE dbo.[p-Questionnaire].CreatedBy = dbo.[p-User].UserID AND dbo.[p-User].WorksFor = @company
+				FROM dbo.[p-Users], dbo.[p-Questionnaire]
+				WHERE dbo.[p-Questionnaire].CreatedBy = dbo.[p-Users].UserID AND dbo.[p-Users].WorksFor = @company
 				)AS MyQuestionnaires, dbo.[p-Includes]
 			)AS CountQuery, dbo.[p-Questionnaire]
 		WHERE 	CountQuery.QuestionnaireID = dbo.[p-Questionnaire].QuestionnaireID
