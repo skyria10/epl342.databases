@@ -4,10 +4,13 @@
 	if(isset($_SESSION["serverName"]) && isset($_SESSION["connectionOptions"])) { 
 		$serverName = $_SESSION["serverName"];
 		$connectionOptions = $_SESSION["connectionOptions"];
+		
 	} else {
 		// Session is not correctly set! Redirecting to start page
+		
 		session_unset();
-		session_destroy();
+		session_destroy();#
+		echo "sercer name ",$serverName,"connection options", $connectionOptions;
 		echo "Session is not correctly set! Clossing session and redirecting to start page in 3 seconds<br/>";
 		die('<meta http-equiv="refresh" content="3; url=index.php" />');
 		//header('Location: index.php');
@@ -47,12 +50,22 @@
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
 
 	//Read Stored proc with param
-	$tsql = "{call EmployeesFromCity(?)}";  
-	echo "Executing query: " . $tsql . ") with parameter " . $_GET["city"] . "<br/>";
+	$tsql = "{call dbo.Q1(?,?,?,?,?,?,?,?,?,?,?)}";  
+	echo "Executing query: " . $tsql . ") with parameter " . $_GET["RecordNum"] . "<br/>";
 
 	// Getting parameter from the http call and setting it for the SQL call
 	$params = array(  
-					 array($_GET["city"], SQLSRV_PARAM_IN)
+					 array($_GET["RecordNum"], SQLSRV_PARAM_IN),
+					 array($_GET["Name"], SQLSRV_PARAM_IN),
+					 array($_GET["EntryDate"], SQLSRV_PARAM_IN),
+					 array($_GET["UserID"], SQLSRV_PARAM_IN),
+					 array($_GET["username"], SQLSRV_PARAM_IN),
+					 array($_GET["password"], SQLSRV_PARAM_IN),
+					 array($_GET["FName"], SQLSRV_PARAM_IN),
+					 array($_GET["LName"], SQLSRV_PARAM_IN),
+					 array($_GET["BDate"], SQLSRV_PARAM_IN),
+					 array($_GET["Sex"], SQLSRV_PARAM_IN),
+					 array($_GET["adminUsername"], SQLSRV_PARAM_IN)
 					);  
 
 	$getResults= sqlsrv_query($conn, $tsql, $params);
@@ -120,7 +133,7 @@
 	
 	<form method="post"> 
 		<input type="submit" name="disconnect" value="Disconnect"/> 
-		<input type="submit" value="Menu" formaction="connect.php">
+		<input type="submit" value="Menu" formaction="chooseQuery.php">
 	</form> 
 
 </body>

@@ -15,7 +15,6 @@
 	} 
 ?>
 
-
 <html>
 <head>
 	<style>
@@ -47,13 +46,20 @@
 	//Establishes the connection
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
 
-	//Read Stored proc without param
-	$tsql = "{call EmployeesFromCity}";  
-	echo "Executing query: " . $tsql . ") without any parameter<br/>";
-	$getResults= sqlsrv_query($conn, $tsql);
+	//Read Stored proc with param
+	$tsql = "{call EmployeesFromCity(?)}";  
+	echo "Executing query: " . $tsql . ") with parameter " . $_GET["city"] . "<br/>";
+
+	// Getting parameter from the http call and setting it for the SQL call
+	$params = array(  
+					 array($_GET["city"], SQLSRV_PARAM_IN)
+					);  
+
+	$getResults= sqlsrv_query($conn, $tsql, $params);
 	echo ("Results:<br/>");
 	if ($getResults == FALSE)
 		die(FormatErrors(sqlsrv_errors()));
+
 	PrintResultSet($getResults);
 	/* Free query  resources. */  
 	sqlsrv_free_stmt($getResults);
@@ -99,6 +105,7 @@
 			echo "Message: ".$error['message']."";
 		}
 	}
+
 	?>
 
 	<hr>
@@ -113,7 +120,8 @@
 	
 	<form method="post"> 
 		<input type="submit" name="disconnect" value="Disconnect"/> 
-		<input type="submit" value="Menu" formaction="connect.php">
+		<input type="submit" value="Menu" formaction="chooseQuery.php">
 	</form> 
+
 </body>
 </html>

@@ -7,9 +7,9 @@
 	if (isset($_POST['connect'])) {
 		echo "<br/>Setting session variables!<br/>";
 		// collect value of input field
-		$sqlDBname = "skyria10";//$_POST['dbName'];
-		$sqlUser ="skyria10"; //$_POST['userName'];
-		$sqlPass = "BhmDq6pe";//$_POST['pswd'];
+		$sqlDBname = "skyria10";
+		$sqlUser = "skyria10";
+		$sqlPass = "BhmDq6pe";
 	
 		if (empty($sqlDBname)) echo "Database name is empty!<br/>";
 		if (empty($sqlUser)) echo "Username is empty!<br/>";
@@ -44,12 +44,23 @@
 	</tr>
     </table>
 	<hr>
-	Please give your Credentianls to enter the system:
-    <form action="chooseQuery.php" method="get">
-		Username: <input type="text" name="username"><br>
-		Password: <input type="text" name="password"><br>
-    <input type="submit" name="connect"> 
-    </form>
+	
+	<!-- <a href="q1.php">1) Insert a company with its manager</a><br> -->
+	<form action="q1.php" method="get">
+		1) Insert a new User: </a><br><br>
+			User Details Details:<br>
+			User ID: <input type="int" name="UserID" ><br>
+			Username<input type="text" name="username" ><br>
+			Password: <input type="password" name="password" ><br>
+			Full Name: <input type="text" name="FName" ><br>
+			Last Name: <input type="text" name="LName" ><br>
+			Birth Date: <input type="date" name="BDate"><br>
+			Sex: <input type="int" name="Sex" ><br>
+			Admin Username: <input type="int" name="adminUsername" ><br>
+    <input type="submit" name="connect">
+</form>
+	<hr>
+	
 	<?php
 		if(isset($_POST['disconnect'])) { 
 			echo "Clossing session and redirecting to start page"; 
@@ -61,6 +72,7 @@
 	
 	<form method="post"> 
 		<input type="submit" name="disconnect" value="Disconnect"/> 
+		<input type="submit" value="Menu" formaction="chooseQuery.php">
 	</form> 
 
 </body>

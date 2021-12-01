@@ -1,4 +1,5 @@
 <?php 
+
 	session_start(); 
 	// Get the DB connection info from the session
 	if(isset($_SESSION["serverName"]) && isset($_SESSION["connectionOptions"])) { 
@@ -60,6 +61,16 @@
 	echo ("Results:<br/>");
 	if ($getResults == FALSE)
 		die(FormatErrors(sqlsrv_errors()));
+	
+	$result=sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC);
+
+	if(isset($result["UserID"])){
+		$_SESSION["UserID"] = $result["UserID"];
+		echo "Authentication Successfull";
+	}
+	else{
+		echo "Wrong Credentials Please Try Again";
+	}
 
 	PrintResultSet($getResults);
 	/* Free query  resources. */  

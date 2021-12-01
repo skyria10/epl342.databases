@@ -50,14 +50,11 @@
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
 
 	//Read Stored proc with param
-	$tsql = "{call dbo.Q1(?,?,?,?,?,?,?,?,?,?,?)}";  
+	$tsql = "{call dbo.Q1(?,?,?,?,?,?,?,?)}";  
 	echo "Executing query: " . $tsql . ") with parameter " . $_GET["RecordNum"] . "<br/>";
 
 	// Getting parameter from the http call and setting it for the SQL call
 	$params = array(  
-					 array($_GET["RecordNum"], SQLSRV_PARAM_IN),
-					 array($_GET["Name"], SQLSRV_PARAM_IN),
-					 array($_GET["EntryDate"], SQLSRV_PARAM_IN),
 					 array($_GET["UserID"], SQLSRV_PARAM_IN),
 					 array($_GET["username"], SQLSRV_PARAM_IN),
 					 array($_GET["password"], SQLSRV_PARAM_IN),
@@ -133,7 +130,7 @@
 	
 	<form method="post"> 
 		<input type="submit" name="disconnect" value="Disconnect"/> 
-		<input type="submit" value="Menu" formaction="connect.php">
+		<input type="submit" value="Menu" formaction="chooseQuery.php">
 	</form> 
 
 </body>
