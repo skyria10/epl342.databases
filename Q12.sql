@@ -40,8 +40,31 @@ SET
                     MyQuestionnaires.QuestionnaireID
             ) AS CountQuery
     )
-
-
-
+SELECT
+    *
+FROM
+    (
+        SELECT
+            MyQuestionnaires.QuestionnaireID,
+            COUNT(MyQuestionnaires.QuestionnaireID) as QuestionCount
+        FROM
+            (
+                SELECT
+                    dbo.[p-Questionnaire].QuestionnaireID
+                FROM
+                    dbo.[p-Users],
+                    dbo.[p-Questionnaire]
+                WHERE
+                    dbo.[p-Questionnaire].CreatedBy = dbo.[p-Users].UserID
+                    AND dbo.[p-Users].WorksFor = @company
+            ) AS MyQuestionnaires,
+            [p-Includes]
+        WHERE
+            [p-Includes].QuestionnaireID = MyQuestionnaires.QuestionnaireID
+        GROUP BY
+            MyQuestionnaires.QuestionnaireID
+    ) AS CountQuery
+WHERE
+    CountQuery.QuestionCount = @minimum
 END
 GO
