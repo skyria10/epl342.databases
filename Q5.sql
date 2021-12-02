@@ -2,7 +2,7 @@ CREATE PROCEDURE dbo.Q5
 
 	@qType			int,
 	@qText			varchar(30),
-	@qDescription	varchar(30),
+	@qDescription	varchar(30)
 	
 	
 	AS
