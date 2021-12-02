@@ -47,8 +47,8 @@
 	
 	<!-- <a href="q1.php">1) Insert a company with its manager</a><br> -->
 	<a href="q1_Preview.php">1) Add new company</a><br>
-	<a href="q2_Preview_search.php">2) Search For a company Using Record Number</a><br>
-	<form action="q2_search.php" method="get">
+	<a 2) Search For a company Using Record Number</a><br>
+	<form action="q2_Search.php" method="get">
 			Search a company using Record Number: <input type="int" name="RecordNum"><br>
     <input type="submit" name="connect">
 </form>

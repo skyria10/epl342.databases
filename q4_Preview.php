@@ -47,8 +47,8 @@
 	
 	<!-- <a href="q1.php">1) Insert a company with its manager</a><br> -->
 	<a href="q3_Preview.php">1) Add new User</a><br>
-	<a href="q3_Preview_search.php">2) Search For a User Using username:</a><br>
-	<form action="q3_search.php" method="get">
+	<a>2) Search For a User Using username:</a><br>
+	<form action="q4_Search.php" method="get">
 			Search a User using username: <input type="int" name="RecordNum"><br>
     <input type="submit" name="connect">
 </form>
