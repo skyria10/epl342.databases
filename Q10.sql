@@ -5,7 +5,7 @@ SET
 SET
     @company = (
         SELECT
-            Manages
+            WorksFor
         FROM
             dbo.[p-Users]
         WHERE
@@ -38,6 +38,4 @@ SET
                     MyQuestionnaires.QuestionnaireID
             ) AS CountQuery
     )
-END
-RETURN
-GO
+END RETURN

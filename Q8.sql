@@ -1,4 +1,4 @@
-CREATE PROCEDURE dbo.Q1
+CREATE PROCEDURE dbo.Q8
 	
 	@logedInUser 	varchar(30)
 	
