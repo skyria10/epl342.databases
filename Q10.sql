@@ -29,7 +29,7 @@ SET
                             dbo.[p-Questionnaire]
                         WHERE
                             dbo.[p-Questionnaire].CreatedBy = dbo.[p-Users].UserID
-                            AND dbo.[p-Users].WorksFor = @company
+                            AND dbo.[p-Users].WorksFor = @company AND [p-Questionnaire].[URL] != NULL
                     ) AS MyQuestionnaires,
                     [p-Includes]
                 WHERE
