@@ -18,7 +18,7 @@
 	<hr>
     
     Please give the SQL DB, username and password to connect to:
-    <form action="connect.php" method="post">
+    <form action="index2.php" method="post">
 	Database: <input type="text" name="dbName"><br>
     Username: <input type="text" name="userName"><br>
     Password: <input type="password" name="pswd"><br>

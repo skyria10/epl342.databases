@@ -43,12 +43,11 @@
 		<td vAlign=center align=middle><h2>Welcome to the EPL342 project test page</h2></td>
 	</tr>
     </table>
-	<div class="main_selection">
-	<hr >
+	<hr>
 	
 	<!-- <a href="q1.php">1) Insert a company with its manager</a><br> -->
-	<!-- <form action="q1_Preview.php" method="get">
-		1) Insert a company with its manager</a><br><br>
+	<form action="q1.php" method="get">
+		1) Add a Question:</a><br><br>
 			Company Details:<br>
 			Record Number: <input type="int" name="RecordNum"><br>
 			Name: <input type="text" name="Name"><br>
@@ -63,25 +62,9 @@
 			Sex: <input type="int" name="Sex" ><br>
 			Admin Username: <input type="int" name="adminUsername" ><br>
     <input type="submit" name="connect">
-	</form> -->
-	<a href="q2_Preview.php">1) Company Management (edit/add/preview)</a><br>
-	<a href="q4_Preview.php">2) User Management (edit/add/preview)</a><br>
-	<a href="q5_Preview.php">3) Manage questions</a><br>
-	<a href="q6_Preview.php">4) Manage questionaires</a><br>
-	<a href="q7_Preview.php">5) Company's Questionnaires</a><br>
-	<a href="q8_Preview.php">6) Most popular questions</a><br>
-	<a href="q9_Preview.php">7) Number of questions per questionnaire</a><br>
-	<a href="q10_Preview.php">8) Average number of questions per company</a><br>
-	<a href="q11_Preview.php">9) Find large questionnaires</a><br>
-	<a href="q12_Preview.php">10) Find Small questionnaires</a><br>
-	<a href="q13_Preview.php">11) Find questionnaires with same questions</a><br>
-	<a href="q14_Preview.php">12) Find common questions</a><br>
-	<a href="q15_Preview.php">13) Find x questions with least participation </a><br>
-	<a href="q16_Preview.php">14) Questions that are included in all questionnaires</a><br>
-	<a href="q17_Preview.php">15) Number of questions of this questionnaire</a><br>
-
+</form>
 	<hr>
-	</div>
+	
 	<?php
 		if(isset($_POST['disconnect'])) { 
 			echo "Clossing session and redirecting to start page"; 
@@ -93,6 +76,7 @@
 	
 	<form method="post"> 
 		<input type="submit" name="disconnect" value="Disconnect"/> 
+        <input type="submit" value="Menu" formaction="chooseQuery.php">
 	</form> 
 
 </body>

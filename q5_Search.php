@@ -1,18 +1,21 @@
 <?php 
-session_start(); 
-// Get the DB connection info from the session
-if(isset($_SESSION["serverName"]) && isset($_SESSION["connectionOptions"])) { 
-	$serverName = $_SESSION["serverName"];
-	$connectionOptions = $_SESSION["connectionOptions"];
-} else {
-	// Session is not correctly set! Redirecting to start page
-	session_unset();
-	session_destroy();
-	echo "Session is not correctly set! Clossing session and redirecting to start page in 3 seconds<br/>";
-	die('<meta http-equiv="refresh" content="3; url=index.php" />');
-	//header('Location: index.php');
-	//die();
-} 
+	session_start(); 
+	// Get the DB connection info from the session
+	if(isset($_SESSION["serverName"]) && isset($_SESSION["connectionOptions"])) { 
+		$serverName = $_SESSION["serverName"];
+		$connectionOptions = $_SESSION["connectionOptions"];
+		
+	} else {
+		// Session is not correctly set! Redirecting to start page
+		
+		session_unset();
+		session_destroy();#
+		echo "sercer name ",$serverName,"connection options", $connectionOptions;
+		echo "Session is not correctly set! Clossing session and redirecting to start page in 3 seconds<br/>";
+		die('<meta http-equiv="refresh" content="3; url=index.php" />');
+		//header('Location: index.php');
+		//die();
+	} 
 ?>
 
 <html>
@@ -47,31 +50,18 @@ if(isset($_SESSION["serverName"]) && isset($_SESSION["connectionOptions"])) {
 	$conn = sqlsrv_connect($serverName, $connectionOptions);
 
 	//Read Stored proc with param
-	$tsql = "{call dbo.spLogin(?,?)}";  
+	$tsql = "{call dbo.Q2Search(?)}";  
 	echo "Executing query: " . $tsql . ") with parameter " . $_GET["RecordNum"] . "<br/>";
 
 	// Getting parameter from the http call and setting it for the SQL call
 	$params = array(  
-				array($_GET["username"], SQLSRV_PARAM_IN),
-				array($_GET["password"], SQLSRV_PARAM_IN)
+					 array($_GET["RecordNum"], SQLSRV_PARAM_IN)
 					);  
 
 	$getResults= sqlsrv_query($conn, $tsql, $params);
 	echo ("Results:<br/>");
 	if ($getResults == FALSE)
 		die(FormatErrors(sqlsrv_errors()));
-
-	$result=sqlsrv_fetch_array($getResults, SQLSRV_FETCH_ASSOC);
-	
-	if(isset($result["Return Value"])){
-        $_SESSION["UserID"] = $result["UserID"];
-        echo "Authentication Successfull";
-    }
-    else{
-        echo "Wrong Credentials Please Try Again";
-    }
-
-
 
 	PrintResultSet($getResults);
 	/* Free query  resources. */  
